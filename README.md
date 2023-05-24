@@ -3,6 +3,17 @@ Projeto em React:
 
 
 
+Material de apoio
+https://react.dev/learn
+
+
+Biblioteca utilizada
+https://mui.com
+
+
+
+
+Criação padrão
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
