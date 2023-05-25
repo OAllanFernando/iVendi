@@ -5,17 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 
-//importa os serviços e instância
-
-
-
-
-export default function MenuRelatorios() {
+export default function MenuMovimento() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -23,16 +15,8 @@ export default function MenuRelatorios() {
     setAnchorEl(null);
   };
 
-
-
-
-
-
-
-
-
   return (
-    <div>
+    <div >
       <Button
         id="basic-button"
         color='inherit'
@@ -41,7 +25,7 @@ export default function MenuRelatorios() {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Relatórios
+        Admin
       </Button>
       <Menu
         id="basic-menu"
@@ -52,10 +36,8 @@ export default function MenuRelatorios() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Clientes</MenuItem>
-        <MenuItem onClick={handleClose}>Bairros</MenuItem>
-        <MenuItem onClick={handleClose}>Cidades</MenuItem>
-        <MenuItem onClick={handleClose}>Relatório de vendas</MenuItem>
+        <MenuItem onClick={handleClose}>Sair</MenuItem>
+        
       </Menu>
     </div>
     

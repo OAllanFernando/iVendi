@@ -4,23 +4,42 @@ import '../styles/App.css';
 
 
 
+import { PessoaController } from '../controllers/PessoaController';
+
+
+
+
+
+
+
 
 function Home() {
+
+
+    const handleClick = () => {
+        const controller = new PessoaController();
+        controller.listaTodos().then((dados) => {
+            console.log(dados);  // Imprime os dados retornados no console
+        }).catch((error) => {
+            console.error(error);
+        });
+    };
+
     return (
 
+        <div className="corpo">
+            <Header></Header>
 
-        <body className="corpo" >
-            
-            <Header>
-            </Header>
-            home
-            <Footer></Footer>
-        </body>
 
+            <button onClick={handleClick} >cathuca</button>
+            <div className="rodape"><Footer ></Footer></div>
+
+        </div>
 
 
     );
 }
+
 
 
 

@@ -2,7 +2,7 @@ import axios  from 'axios';
 
 export class CidadeService{
     
-    url = process.env.REACT_APP_URL_NODE_API+'/cidade';
+    url = process.env.REACT_APP_URL_NODE_API+'cidade';
 
     listarTodos(){
         return axios.get(this.url);

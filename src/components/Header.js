@@ -1,18 +1,19 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
+import '../styles/transitores.css'
 
 
 import CssBaseline from '@mui/material/CssBaseline';
 
-import Toolbar from '@mui/material/Toolbar';
 
 
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import MenuCadastro from './utils.js/MenuCadastro';
-import MenuMovimento from './utils.js/MenuMovimento';
-import MenuRelatorio from './utils.js/MenuRelatorio';
-import MenuVenda from './utils.js/MenuVenda';
+import MenuCadastro from './transitores/MenuCadastro';
+import MenuMovimento from './transitores/MenuMovimento';
+import MenuRelatorio from './transitores/MenuRelatorio';
+import MenuVenda from './transitores/MenuVenda';
+import MenuLogin from './transitores/MenuLogin';
 
 const defaultTheme = createTheme();
 
@@ -20,14 +21,21 @@ export default function Header() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-            <MenuVenda />
-            <MenuMovimento />
-            <MenuCadastro />
-            <MenuRelatorio />
+      <AppBar position="static">
+
+       
+
+        <div className='esquerda'>
+          <MenuVenda />
+          <MenuMovimento />
+          <MenuCadastro /><MenuRelatorio />
+
+ <div className='direita'>
           
-        </Toolbar>
+          <MenuLogin />
+        </div>
+ </div>
+
       </AppBar>
     </ThemeProvider>
   );

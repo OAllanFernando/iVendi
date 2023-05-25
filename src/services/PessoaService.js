@@ -2,7 +2,7 @@ import axios  from 'axios';
 
 export class PessoaService{
     
-    url = process.env.REACT_APP_URL_NODE_API+'/pessoa';
+    url = process.env.REACT_APP_URL_NODE_API+'pessoa';
 
     listarTodos(){
         return axios.get(this.url);

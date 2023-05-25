@@ -4,13 +4,14 @@
   
 }
 
-.rodape{
+.rodape {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   text-align: left;
-  background-color: rgb(136, 134, 171);
-
-  border-color: rgb(0, 0, 0);
-  
-
+  background-color: rgba(10, 124, 231, 0.943);
+  color: aliceblue;
 }
 .corpo{
   background-size: 20px;
