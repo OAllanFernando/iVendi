@@ -2,7 +2,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import '../styles/App.css';
 
-
+import  DialogExcluir  from '../components/dialogExcluir';
 
 import { PessoaController } from '../controllers/PessoaController';
 
@@ -30,6 +30,7 @@ function Home() {
         <div className="corpo">
             <Header></Header>
 
+            <DialogExcluir />
 
             <button onClick={handleClick} >cathuca</button>
             <div className="rodape"><Footer ></Footer></div>
