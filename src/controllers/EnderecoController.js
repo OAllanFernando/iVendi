@@ -1,14 +1,14 @@
-import { PessoaService } from '../services/PessoaService'
+import { EnderecoService } from '../services/EnderecoService'
 
 
-var pessoa = new PessoaService();
+var endereco = new EnderecoService();
 
-export class PessoaController {
+export class EnderecoController {
 
     async listaTodos() {
         try {
-            const response = await pessoa.listarTodos();
-            console.log(response.data)
+            const response = await endereco.listarTodos();
+            
             return response.data;
         } catch (error) {
            
@@ -19,7 +19,7 @@ export class PessoaController {
 
     async excluir(id){
         try {
-            const response = await pessoa.excluir(id);
+            const response = await endereco.excluir(id);
             if(response === "Registro apagado!"){
            
             return response; 
@@ -34,12 +34,12 @@ export class PessoaController {
 
     async inserir(Object){
         try {
-            const response = await pessoa.inserer(Object);
+            const response = await endereco.inserer(Object);
             
-            if(response.data.mensagem === "Cliente cadastrado com sucesso!"){
+            if(response.mensagem === "Endereco cadastrado com sucesso!"){
             
             
-            return response.data.mensagem; 
+            return response.mensagem; 
             }
         } catch (error) {
             
@@ -47,10 +47,9 @@ export class PessoaController {
         }
     }
 
-    
     async maiorId(){
         try{
-            const response = await pessoa.maiorId();
+            const response = await endereco.maiorId();
             
             return response.data;
         } catch (error) {
@@ -58,6 +57,9 @@ export class PessoaController {
             console.error(error);
         }
     }
+
+    
+        
 
 
 

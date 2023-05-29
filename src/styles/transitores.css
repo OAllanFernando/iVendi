@@ -1,8 +1,20 @@
 .direita {
-    position: absolute;
-    right: 0;
-  }
-.esquerda{
-    display: flex;
-      
+  position: absolute;
+  right: 0;
+}
+
+.esquerda {
+  display: flex;
+
+}
+
+.centro {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.centrodados {
+  margin-top: 20px;
+  text-align: center;
+
 }

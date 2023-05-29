@@ -2,27 +2,42 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import '../styles/App.css';
 
-import  DialogExcluir  from '../components/dialogExcluir';
+import SelectVariants from "../components/comboBox/ComboBeC";
 
-import { PessoaController } from '../controllers/PessoaController';
+//import ComboBairro from "../components/comboBox/comboBairro";
+//import { PessoaController } from '../controllers/PessoaController';
+
+import { BairroController } from "../controllers/BairroController";
 
 
 
-
-
+/*const Pessoa = {
+  
+  "id": 6,
+  "nome": "Allan teste",
+  "codigo": 6,
+  "telefone": null,
+  "email": "rafa@meuamdddddddddddor.com",
+  "enderecoId": 1,
+  "createdAt": "2023-05-27T15:55:42.000Z",
+  "updatedAt": "2023-05-27T15:55:42.000Z",
+};
+*/
 
 
 
 function Home() {
+    
 
 
-    const handleClick = () => {
-        const controller = new PessoaController();
-        controller.listaTodos().then((dados) => {
-            console.log(dados);  // Imprime os dados retornados no console
-        }).catch((error) => {
-            console.error(error);
-        });
+    const handleClick =  async () => {
+        var controller = new BairroController();
+        var maior = await controller.maiorId();
+        console.log(maior);
+
+
+       
+
     };
 
     return (
@@ -30,7 +45,7 @@ function Home() {
         <div className="corpo">
             <Header></Header>
 
-            <DialogExcluir />
+            <SelectVariants />
 
             <button onClick={handleClick} >cathuca</button>
             <div className="rodape"><Footer ></Footer></div>

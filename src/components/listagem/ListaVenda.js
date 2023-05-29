@@ -8,12 +8,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button } from '@mui/material';
 
 
 
 
-import { PessoaController } from '../../controllers/PessoaController';
+
+import { VendaController } from '../../controllers/VendaController';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -40,7 +40,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 // instancio o controlador e tento 
-const controller = new PessoaController();
+const controller = new VendaController();
 var dados = Object;
 try {
   dados = await controller.listaTodos();
@@ -48,20 +48,8 @@ try {
 } catch (error) {
   console.error(error);
 }
-const handleDelete = (id) => {
-  // exclui e recarrega a página 
-  controller.excluir(id).then(() => {
-    window.location.reload();
 
-  })
-    .catch((error) => {
-      console.error(error);
-    });
-  
-};
-function handleEdit() {
-  console.log("Editado")
-}
+
 
 
 export default function ListaCliente() {
@@ -79,28 +67,25 @@ export default function ListaCliente() {
           <TableHead>
             <TableRow>
               <StyledTableCell>Código</StyledTableCell>
-              <StyledTableCell align="right">Nome</StyledTableCell>
-              <StyledTableCell align="right">Telefone</StyledTableCell>
-              <StyledTableCell align="right">Cidade</StyledTableCell>
-              <StyledTableCell align="right">Cadastrado Em</StyledTableCell>
-
-              <StyledTableCell align="right">Ações</StyledTableCell>
+              <StyledTableCell align="right">Itens</StyledTableCell>
+              <StyledTableCell align="right">Cliente</StyledTableCell>
+              <StyledTableCell align="right">Data</StyledTableCell>
+              <StyledTableCell align="right">Total</StyledTableCell>
+              
             </TableRow>
           </TableHead>
           <TableBody>
 
-            {dados.pessoas.map((row) => (
+            {dados.vendas.map((row) => (
               <StyledTableRow key={row.id}>
                 <StyledTableCell component="th" scope="row">
                   {row.codigo}
                 </StyledTableCell>
                 <StyledTableCell align="right">{row.nome}</StyledTableCell>
-                <StyledTableCell align="right">{row.telefone}</StyledTableCell>
-                <StyledTableCell align="right">{row.Endereco.Bairro.Cidade.nome}</StyledTableCell>
+                <StyledTableCell align="right">{row.Pessoa.nome}</StyledTableCell>
+                
                 <StyledTableCell align="right">{row.createdAt}</StyledTableCell>
-                <StyledTableCell align="right"><Button variant="contained" color="primary" onClick={() => handleEdit(row.id)}>Editar</Button>
-                  <Button variant="contained" color="error" onClick={() => handleDelete(row.id) } >Excluir</Button>
-                </StyledTableCell>
+                
               </StyledTableRow>
             ))}
           </TableBody>

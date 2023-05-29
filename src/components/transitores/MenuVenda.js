@@ -1,25 +1,24 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function MenuVenda() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(null);
-  };
-
+  
+ 
+  const navigate = useNavigate(); 
+ 
 
   return (
     <div>
       <Button
         id="basic-button"
         color='inherit'
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
+        
+       
+        
+        onClick={() => {navigate("/")}}      >
+
         Vender
       </Button>
      

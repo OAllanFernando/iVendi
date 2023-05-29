@@ -10,6 +10,17 @@ https://react.dev/learn
 Biblioteca utilizada
 https://mui.com
 
+Material de apoio
+https://www.youtube.com/watch?v=AXkHpLF5dYY - Navegação
+
+https://www.youtube.com/watch?v=XL2QwbpOKkw - Cadastro 
+
+https://mui.com/material-ui/react-text-field/#integration-with-3rd-party-input-libraries - Mascaras
+npm install react-imask - pacote para mascaras 
+
+https://mui.com/material-ui/react-text-field/ - ComboBOX
+
+https://mui.com/material-ui/react-alert/ - Alerts
 
 
 

@@ -17,7 +17,10 @@ export class PessoaService{
     }
     
     excluir(id){
-        return axios.delete(this.url+id);
+        return axios.delete(this.url+"/"+id);
     }
 
+    maiorId(){
+        return axios.get(this.url+"maior");
+    }
 }

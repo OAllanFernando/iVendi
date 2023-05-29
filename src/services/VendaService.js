@@ -1,8 +1,8 @@
 import axios  from 'axios';
 
-export class CidadeService{
+export class VendaService{
     
-    url = process.env.REACT_APP_URL_NODE_API+'cidade';
+    url = process.env.REACT_APP_URL_NODE_API+'venda';
 
     listarTodos(){
         return axios.get(this.url);

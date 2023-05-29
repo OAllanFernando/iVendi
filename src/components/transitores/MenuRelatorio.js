@@ -1,22 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+
+import { useNavigate } from 'react-router-dom';
 //import CustomPaginationActionsTable from '../listagem/ListaCliente';
 
 export default function MenuRelatorios() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-
- 
-
-  // função dos botãoes 
-
-  const listaClienteBtn = (event) => {
-    
-    handleClose()
-  };
+  const navigate = useNavigate(); 
   
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -46,10 +39,10 @@ export default function MenuRelatorios() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={listaClienteBtn}>Clientes</MenuItem>
-        <MenuItem onClick={handleClose}>Bairros</MenuItem>
-        <MenuItem onClick={handleClose}>Cidades</MenuItem>
-        <MenuItem onClick={handleClose}>Relatório de vendas</MenuItem>
+        <MenuItem onClick={() => {navigate("/clientes")}}>Clientes</MenuItem>
+        <MenuItem onClick={() => {navigate("/bairros")}}>Bairros</MenuItem>
+        <MenuItem onClick={() => {navigate("/cidades")}}>Cidades</MenuItem>
+        <MenuItem onClick={() => {navigate("/vendas")}}>Relatório de vendas</MenuItem>
       </Menu>
     </div>
     
