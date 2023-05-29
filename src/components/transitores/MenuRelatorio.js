@@ -42,6 +42,7 @@ export default function MenuRelatorios() {
         <MenuItem onClick={() => {navigate("/clientes")}}>Clientes</MenuItem>
         <MenuItem onClick={() => {navigate("/bairros")}}>Bairros</MenuItem>
         <MenuItem onClick={() => {navigate("/cidades")}}>Cidades</MenuItem>
+        <MenuItem onClick={() => {navigate("/produtos")}}>Produtos</MenuItem>
         <MenuItem onClick={() => {navigate("/vendas")}}>Relatório de vendas</MenuItem>
       </Menu>
     </div>

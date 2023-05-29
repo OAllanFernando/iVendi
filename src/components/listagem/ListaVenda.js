@@ -13,7 +13,7 @@ import Paper from '@mui/material/Paper';
 
 
 
-import { VendaController } from '../../controllers/VendaController';
+import { ProdutoVendaController } from '../../controllers/ProdutoVendaController';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -40,7 +40,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 // instancio o controlador e tento 
-const controller = new VendaController();
+const controller = new ProdutoVendaController();
 var dados = Object;
 try {
   dados = await controller.listaTodos();
@@ -78,13 +78,11 @@ export default function ListaCliente() {
 
             {dados.vendas.map((row) => (
               <StyledTableRow key={row.id}>
-                <StyledTableCell component="th" scope="row">
-                  {row.codigo}
-                </StyledTableCell>
-                <StyledTableCell align="right">{row.nome}</StyledTableCell>
-                <StyledTableCell align="right">{row.Pessoa.nome}</StyledTableCell>
-                
-                <StyledTableCell align="right">{row.createdAt}</StyledTableCell>
+                <StyledTableCell component="th" scope="row"> {row.codigo}</StyledTableCell>
+                <StyledTableCell align="right">{row.Produto.nome}</StyledTableCell>
+                <StyledTableCell align="right">{row.Venda.Pessoa.nome}</StyledTableCell>
+                 <StyledTableCell align="right">{row.createdAt}</StyledTableCell>
+                 <StyledTableCell align="right">{row.Venda.total}</StyledTableCell>
                 
               </StyledTableRow>
             ))}
