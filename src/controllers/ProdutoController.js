@@ -31,9 +31,9 @@ export class ProdutoController {
     }
 
 
-    async buscaPorCidade(id) {
+    async buscaPorId(id) {
         try {
-            const response = await produto.buscaPorCidade(id);
+            const response = await produto.buscaPorId(id);
             console.log(response.data);
             return response.data;
                 

@@ -17,10 +17,13 @@ https://www.youtube.com/watch?v=XL2QwbpOKkw - Cadastro
 
 https://mui.com/material-ui/react-text-field/#integration-with-3rd-party-input-libraries - Mascaras
 npm install react-imask - pacote para mascaras 
+npm install @mui/icons-material - icones
 
 https://mui.com/material-ui/react-text-field/ - ComboBOX
 
 https://mui.com/material-ui/react-alert/ - Alerts
+
+https://mui.com/x/react-date-pickers/getting-started/ - datas
 
 
 

@@ -35,10 +35,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-
-
-
-
 // instancio o controlador e tento 
 const controller = new PessoaController();
 var dados = Object;

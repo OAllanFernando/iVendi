@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import CadastroProduto from "../components/cadastro/CadastroProtuto";
+import CadastroProduto from "../components/cadastro/CadastroProduto";
 export default function CadProduto(){
     return (
 

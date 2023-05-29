@@ -41,6 +41,15 @@ export default function CadastroCliente() {
     const [clienteCadastrado, setClienteCadastrado] = useState(false);
     const [cidade, setCidade] = useState('');
     const [bairro, setBairro] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [cep, setCep] = useState('');
+
+    const handleChangeTelefone = async (event) => {
+        setTelefone(event.target.value);
+    }
+    const handleChangeCep = async (event) => {
+        setCep(event.target.value);
+    }
 
     const handleChange = async (event) => {
         setCidade(event.target.value);
@@ -118,7 +127,7 @@ export default function CadastroCliente() {
                 </div>
 
                 <div className="centrodados">
-                    <TextField id="telefone" label="Telefone" variant="standard" InputProps={{ inputComponent: IMaskInput, inputProps: { mask: '(00)0 0000-0000' } }} onChange={handleChange} />
+                    <TextField id="telefone" label="Telefone" variant="standard" value={telefone} InputProps={{ inputComponent: IMaskInput, inputProps: { mask: '(00)0 0000-0000' } }} onChange={handleChangeTelefone}/>
                     <TextField id="email" label="E-mail" variant="standard" />
                 </div>
                 <div className="centro"><label >Endereço:</label></div>
@@ -163,7 +172,7 @@ export default function CadastroCliente() {
 
                 </div>
                 <div className="centrodados">
-                    <TextField id="cep" label="Cep" variant="standard" InputProps={{ inputComponent: IMaskInput, inputProps: { mask: '00000-000' } }} />
+                    <TextField id="cep" label="Cep" variant="standard" value={cep} InputProps={{ inputComponent: IMaskInput, inputProps: { mask: '00000-000' } }} onChange={handleChangeCep}/>
                     <TextField id="numero" label="Número" variant="standard" type="number" />
 
                 </div>
