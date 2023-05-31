@@ -46,7 +46,7 @@ export class BairroController {
     async maiorId(){
         try{
             const response = await bairro.maiorId();
-            console.log(response);
+            
             return response.data;
         } catch (error) {
             
@@ -69,6 +69,35 @@ export class BairroController {
         }
     }
 
+
+    async buscaPorId(id) {
+        try {
+            const response = await bairro.buscaPorId(id);
+            
+            return response.data;
+                
+            
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
+
+
+    async alterar(Object){
+        try {
+            const response = await bairro.alterar(Object);
+            
+            if(response.data.mensagem === "Registro editado!"){
+            
+            
+            return response.data.mensagem; 
+            }
+        } catch (error) {
+            
+            console.error(error);
+        }
+    }
 
 
 }

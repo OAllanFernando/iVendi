@@ -27,4 +27,8 @@ export class BairroService{
         return axios.get(this.url+"maior");
     }
 
+    buscaPorId(id){
+        return axios.get(this.url+"/"+id);
+    }
+
 }

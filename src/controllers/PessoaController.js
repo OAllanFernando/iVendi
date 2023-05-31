@@ -8,7 +8,7 @@ export class PessoaController {
     async listaTodos() {
         try {
             const response = await pessoa.listarTodos();
-            console.log(response.data)
+            
             return response.data;
         } catch (error) {
            
@@ -59,10 +59,73 @@ export class PessoaController {
         }
     }
 
+    async buscaPorId(id) {
+        try {
+            const response = await pessoa.buscaPorId(id);
+            
+            return response.data;
+                
+            
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
 
 
-    
+    async alterar(Object){
+        try {
+            const response = await pessoa.alterar(Object);
+            
+            if(response.data.mensagem === "Registro editado!"){
+            
+            
+            return response.data.mensagem; 
+            }
+        } catch (error) {
+            
+            console.error(error);
+        }
+    }
 
 
+    async buscaPorCidade(id) {
+        try {
+            const response = await pessoa.buscaPorCidade(id);
+            
+            return response.data;
+                
+            
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
+
+    async buscaPorBairro(id) {
+        try {
+            const response = await pessoa.buscaPorBairro(id);
+            
+            return response.data;
+                
+            
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
+
+    async buscaPorNome(nome) {
+        try {
+            const response = await pessoa.buscaPorNome(nome);
+            
+            return response.data;
+                
+            
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
 
 }

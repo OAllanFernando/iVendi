@@ -9,6 +9,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
+import { useState } from 'react';
+import BairroEditor from '../editores/BairroEditor';
 
 
 
@@ -43,65 +45,83 @@ const controller = new BairroController();
 var dados = Object;
 try {
   dados = await controller.listaTodos();
-  
+
 } catch (error) {
   console.error(error);
 }
 
 const handleDelete = (id) => {
   // exclui e recarrega a página 
-    controller.excluir(id).then(() => {
-      window.location.reload(); 
-    })
+  controller.excluir(id).then(() => {
+    window.location.reload();
+  })
     .catch((error) => {
       console.error(error);
     });
-    
-  };
-  function handleEdit() {
-    console.log("Editado")
-  }
+
+};
+
 
 export default function ListaBairro() {
+  const [openEditor, setOpenEditor] = useState(false);
+  const [bairro, setBairro] = useState(null);
+
+  async function handleEdit(id) {
+    setOpenEditor(true);
+    const bairro = await controller.buscaPorId(id);
+    console.log(bairro);
+    setBairro(bairro);
+  }
+
+  function handleCloseEditor() {
+    setOpenEditor(false);
+  }
+
+
+
+
 
   return (
 
     <div>
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Código</StyledTableCell>
-            <StyledTableCell align="right">Nome</StyledTableCell>
-            <StyledTableCell align="right">Cidade</StyledTableCell>
-            
-            <StyledTableCell align="right">Cadastrado Em</StyledTableCell>
+      <div>
+        <BairroEditor open={openEditor} onClose={handleCloseEditor} bairro={bairro} />
+      </div>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Código</StyledTableCell>
+              <StyledTableCell align="right">Nome</StyledTableCell>
+              <StyledTableCell align="right">Cidade</StyledTableCell>
 
-            <StyledTableCell align="right">Ações</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+              <StyledTableCell align="right">Cadastrado Em</StyledTableCell>
 
-          {dados.bairros.map((row) => (
-            <StyledTableRow key={row.id}>
-              <StyledTableCell component="th" scope="row">
-                {row.codigo}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.nome}</StyledTableCell>
-              <StyledTableCell align="right">{row.Cidade.nome}</StyledTableCell>
-              
-              <StyledTableCell align="right">{row.createdAt}</StyledTableCell>
-              <StyledTableCell align="right"><Button variant="contained" color="primary" onClick={() => handleEdit(row.id)}>Editar</Button>
-                <Button variant="contained" color="error" onClick={() => handleDelete(row.id)}>Excluir</Button>
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-   
-    </TableContainer>
-    
-    
+              <StyledTableCell align="right">Ações</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+
+            {dados.bairros.map((row) => (
+              <StyledTableRow key={row.id}>
+                <StyledTableCell component="th" scope="row">
+                  {row.codigo}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.nome}</StyledTableCell>
+                <StyledTableCell align="right">{row.Cidade.nome}</StyledTableCell>
+
+                <StyledTableCell align="right">{row.createdAt}</StyledTableCell>
+                <StyledTableCell align="right"><Button variant="contained" color="primary" onClick={() => handleEdit(row.id)}>Editar</Button>
+                  <Button variant="contained" color="error" onClick={() => handleDelete(row.id)}>Excluir</Button>
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+
+      </TableContainer>
+
+
     </div>
   );
 }

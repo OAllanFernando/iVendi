@@ -23,4 +23,18 @@ export class PessoaService{
     maiorId(){
         return axios.get(this.url+"maior");
     }
+    buscaPorId(id){
+        return axios.get(this.url+"/"+id);
+    }
+
+    buscaPorCidade(id){
+        return axios.get(this.url+"/cidade/"+id);
+    }
+    buscaPorBairro(id){
+        return axios.get(this.url+"/bairro/"+id);
+    }
+
+    buscaPorNome(nome){
+        return axios.get(this.url+"/nome/"+nome);
+    }
 }

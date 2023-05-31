@@ -47,7 +47,7 @@ export class VendaController {
     async maiorId(){
         try{
             const response = await venda.maiorId();
-            console.log(response);
+            
             return response.data;
         } catch (error) {
             

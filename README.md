@@ -2,7 +2,9 @@ Projeto em React:
     Sistema de registro de vendas
 
 
+ <TableBody>
 
+            
 Material de apoio
 https://react.dev/learn
 
@@ -17,7 +19,8 @@ https://www.youtube.com/watch?v=XL2QwbpOKkw - Cadastro
 
 https://mui.com/material-ui/react-text-field/#integration-with-3rd-party-input-libraries - Mascaras
 npm install react-imask - pacote para mascaras 
-npm install @mui/icons-material - icones
+npm install @mui/icons-material - icones,
+npm install @mui/x-date-pickers - datas
 
 https://mui.com/material-ui/react-text-field/ - ComboBOX
 

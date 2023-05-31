@@ -7,6 +7,7 @@ import Cidades from "./pages/Cidades";
 import Bairros from "./pages/Bairros";
 import Vendas from "./pages/Vendas";
 import Produtos from "./pages/Produtos";
+import About from "./pages/about";
 
 import CadCidade from "./pages/CadCidade";
 import CadBairro from "./pages/CadBairro";
@@ -27,6 +28,8 @@ function App() {
       <Route path="/bairros" element={<Bairros />}></Route>
       <Route path="/vendas" element={<Vendas />}></Route>
       <Route path="/produtos" element={<Produtos />}></Route>
+
+      <Route path="/about" element={<About />}></Route>
 
       <Route path="/cadastro/cidade" element={<CadCidade />}></Route>
       <Route path="/cadastro/bairro" element={<CadBairro />}></Route>

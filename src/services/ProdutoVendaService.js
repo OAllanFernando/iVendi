@@ -22,5 +22,15 @@ export class ProdutoVendaService{
     maiorId(){
         return axios.get(this.url+"maior");
     }
+    buscaPorPessoa(id){
+        return axios.get(this.url+"/pessoa/"+id);
+    }
+    buscaPorNome(id){
+        return axios.get(this.url+"/produto/"+id);
+    }
+
+    buscaPorData(dataInicial, dataFinal){      
+        return axios.get(this.url+"/periodo/"+ dataInicial + "/"+ dataFinal);
+        }
 
 }

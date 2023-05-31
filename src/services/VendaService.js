@@ -23,4 +23,7 @@ export class VendaService{
         return axios.get(this.url+"maior");
     }
 
+    buscaPorData(dataInicial, dataFinal){      
+    return axios.get(this.url+"/periodo/"+ dataInicial + "/"+ dataFinal);
+    }
 }

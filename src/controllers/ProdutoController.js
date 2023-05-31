@@ -8,7 +8,7 @@ export class ProdutoController {
     async listaTodos() {
         try {
             const response = await produto.listarTodos();
-            console.log(response.data)
+           
             return response.data;
             
         } catch (error) {
@@ -34,7 +34,7 @@ export class ProdutoController {
     async buscaPorId(id) {
         try {
             const response = await produto.buscaPorId(id);
-            console.log(response.data);
+            
             return response.data;
                 
             
@@ -47,7 +47,7 @@ export class ProdutoController {
     async maiorId(){
         try{
             const response = await produto.maiorId();
-            console.log(response);
+            
             return response.data;
         } catch (error) {
             
@@ -60,6 +60,21 @@ export class ProdutoController {
             const response = await produto.inserer(Object);
             console.log(response);
             if(response.data.mensagem === "Produto cadastrado com sucesso!"){
+            
+            
+            return response.data.mensagem; 
+            }
+        } catch (error) {
+            
+            console.error(error);
+        }
+    }
+
+    async alterar(Object){
+        try {
+            const response = await produto.alterar(Object);
+            
+            if(response.data.mensagem === "Registro editado!"){
             
             
             return response.data.mensagem; 

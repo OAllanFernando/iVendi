@@ -10,7 +10,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuCadastro from './transitores/MenuCadastro';
-import MenuMovimento from './transitores/MenuMovimento';
+
 import MenuRelatorio from './transitores/MenuRelatorio';
 import MenuVenda from './transitores/MenuVenda';
 import MenuLogin from './transitores/MenuLogin';
@@ -27,7 +27,7 @@ export default function Header() {
 
         <div className='esquerda'>
           <MenuVenda />
-          <MenuMovimento />
+          
           <MenuCadastro /><MenuRelatorio />
 
  <div className='direita'>

@@ -8,7 +8,7 @@ export class ProdutoVendaController {
     async listaTodos() {
         try {
             const response = await produtovenda.listarTodos();
-            console.log(response.data)
+           
             return response.data;
             
         } catch (error) {
@@ -70,6 +70,43 @@ export class ProdutoVendaController {
         }
     }
 
+    async buscaPorPessoa(id) {
+        try {
+            const response = await produtovenda.buscaPorPessoa(id);
+            
+            return response.data;
+                
+            
+        } catch (error) {
 
+            console.error(error);
+        }
+    }
+
+    async buscaPorProduto(id) {
+        try {
+            const response = await produtovenda.buscaPorProduto(id);
+            
+            return response.data;
+                
+            
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
+
+    async buscaPorData(dataInicial, dataFinal) {
+        try {
+            const response = await produtovenda.buscaPorData(dataInicial, dataFinal);
+            
+            return response.data;
+                
+            
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
 
 }

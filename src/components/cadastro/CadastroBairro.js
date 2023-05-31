@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const bairro = new BairroController();
 var maiorId = await bairro.maiorId();
-console.log(maiorId);
+
 
 
 

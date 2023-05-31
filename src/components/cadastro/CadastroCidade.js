@@ -12,11 +12,15 @@ var maiorId = await cidade.maiorId();
 
 export default function CadastroCidade() {
     const [cidadeCadastrado, setCidadeCadastrado] = useState(false);
+    const [sigla, setSigla] = useState('');
 
+    const handleSigla = async (event) => {
+        setSigla(event.target.value);
+    }
     async function pegaDados() {
         const codigo = document.getElementById('codigo').value;
         const nome = document.getElementById('nome').value;
-        const sigla = document.getElementById('sigla').value;
+        
 
         const cidadeNova = {
             codigo: codigo,
@@ -43,7 +47,7 @@ export default function CadastroCidade() {
                 <div className="centro"><label >Insira os dados da cidade:</label></div>
                 <div className="centro"><TextField id="codigo" label="Codigo" variant="standard" type="number" defaultValue={maiorId.maiorId + 1} /></div>
                 <div className="centro"><TextField id="nome" label="Nome" variant="standard" /></div>
-                <div className="centro"><TextField id="sigla" label="Sigla" variant="standard" InputProps={{ inputComponent: IMaskInput, inputProps: { mask: 'aa' } }} /></div>
+                <div className="centro"><TextField id="sigla" label="Sigla" variant="standard"  value={sigla} onChange={handleSigla} InputProps={{ inputComponent: IMaskInput, inputProps: { mask: 'aa' } }} /></div>
 
 
                 <div className="centro">

@@ -9,7 +9,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
-
+import { useState } from 'react';
+import CidadeEditor from '../editores/CidadeEditor';
 
 
 import { CidadeController } from '../../controllers/CidadeController';
@@ -58,20 +59,30 @@ const handleDelete = (id) => {
     });
     
   };
-  function handleEdit() {
-    console.log("Editado")
-  }
+  
 
 export default function ListaCidade() {
+  const [openEditor, setOpenEditor] = useState(false);
+  const [cidade, setCidade] = useState(null);
   
- 
-
+  async function handleEdit(id) {
+    setOpenEditor(true);
+    const cidade = await controller.buscaPorId(id);
+    console.log(cidade);
+    setCidade(cidade);
+  }
+  function handleCloseEditor() {
+    setOpenEditor(false);
+  }
 
 
 
   return (
 
     <div>
+      <div>
+        <CidadeEditor open={openEditor} onClose={handleCloseEditor} cidade={cidade} />
+      </div>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>

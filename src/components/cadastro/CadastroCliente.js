@@ -27,6 +27,7 @@ var dadosBairro;
 //basca dados das cidades ao abrir o componente
 dados = await controller.listaTodos();
 dadosBairro = await controllerBairro.listaTodos();
+console.log(dadosBairro)
 
 
 
@@ -55,11 +56,21 @@ export default function CadastroCliente() {
         setCidade(event.target.value);
         console.log(event.target.value);
 
-
-        dadosBairro = await controllerBairro.buscaPorCidade(event.target.value);
-        console.log('');
+        
+        await controllerBairro.buscaPorCidade(event.target.value).then((response)=> {
+            if(response === undefined){
+                dadosBairro = { bairros: [{ nome: "" }] };
+                console.log(dadosBairro);
+                setBairro(dadosBairro)
+                
+            } else {
+                dadosBairro = response;
+                setBairro(dadosBairro)
+            }
+        });
+        
         //dou esse set para atualizar o combo bairro sem ele só atualiza depois de cluicar em um
-        setBairro(Object)
+        
     };
 
     const handleChangeBairro = async (event) => {
@@ -153,12 +164,7 @@ export default function CadastroCliente() {
 
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 190 }}>
                             <InputLabel id="bairro">Bairro</InputLabel>
-                            <Select
-                                labelId="bairro"
-                                id="bairro"
-                                value={bairro}
-                                onChange={handleChangeBairro}
-                            >
+                            <Select  labelId="bairro"   id="bairro" value={bairro} onChange={handleChangeBairro} >
                                 {dadosBairro.bairros.map((option) => (
                                     <MenuItem key={option.id} value={option.id}>
                                         {option.nome}

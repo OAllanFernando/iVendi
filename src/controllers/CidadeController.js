@@ -34,7 +34,7 @@ export class CidadeController {
     async maiorId(){
         try{
             const response = await cidade.maiorId();
-            console.log(response);
+            
             return response.data;
         } catch (error) {
             
@@ -47,6 +47,34 @@ export class CidadeController {
             const response = await cidade.inserer(Object);
             console.log(response);
             if(response.data.mensagem === "Cidade cadastrada com sucesso!"){
+            
+            
+            return response.data.mensagem; 
+            }
+        } catch (error) {
+            
+            console.error(error);
+        }
+    }
+
+    async buscaPorId(id) {
+        try {
+            const response = await cidade.buscaPorId(id);
+            
+            return response.data;
+                
+            
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
+
+    async alterar(Object){
+        try {
+            const response = await cidade.alterar(Object);
+            
+            if(response.data.mensagem === "Registro editado!"){
             
             
             return response.data.mensagem; 
