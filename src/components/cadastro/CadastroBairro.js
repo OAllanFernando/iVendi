@@ -9,7 +9,7 @@ import { Alert } from "@mui/material";
 import { useState } from "react";
 
 const bairro = new BairroController();
-var maiorId = await bairro.maiorId();
+var maiorId = await bairro.maiorId() || 0;
 
 
 
@@ -75,7 +75,7 @@ export default function CadastroBairro() {
                             helperText="Escolha a cidade"
                             variant="standard"
                         >
-                            {dados.cidades.map((option) => (
+                            {dados && dados.cidades.map((option) => (
                                 <MenuItem key={option.id} value={option.id}>
                                     {option.nome}
                                 </MenuItem>

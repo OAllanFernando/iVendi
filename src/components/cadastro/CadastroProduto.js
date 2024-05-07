@@ -10,7 +10,7 @@ import { ProdutoController } from "../../controllers/ProdutoController";
 
 const produto = new ProdutoController();
 
-var maiorId = await produto.maiorId();
+var maiorId = await produto.maiorId() || 0;
 
 export default function CadastroProduto() {
     const [produtoCadastrado, setProdutoCadastrado] = useState(false);

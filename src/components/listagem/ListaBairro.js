@@ -102,7 +102,7 @@ export default function ListaBairro() {
           </TableHead>
           <TableBody>
 
-            {dados.bairros.map((row) => (
+            {dados && dados.bairros.map((row) => (
               <StyledTableRow key={row.id}>
                 <StyledTableCell component="th" scope="row">
                   {row.codigo}

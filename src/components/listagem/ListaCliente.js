@@ -53,10 +53,10 @@ const controllerBairro = new BairroController();
 
 
 try {
-  var dados = await controller.listaTodos();
+  var dados = await controller.listaTodos() || [];
   //filtro
-  var dadosCidade = await controllerCidade.listaTodos();
-  var dadosBairro = await controllerBairro.listaTodos();
+  var dadosCidade = await controllerCidade.listaTodos() || [];
+  var dadosBairro = await controllerBairro.listaTodos() || [];
   //
 } catch (error) {
   console.error(error);
@@ -84,7 +84,7 @@ export default function ListaCliente() {
 
   //Filtro
   //att a lista
-  const [dadoFiltro, setDadoFiltro] = useState(dados.pessoas);
+  const [dadoFiltro, setDadoFiltro] = useState(dados.pessoas || []);
 
   const [nome, setNome] = React.useState(false);
   const [bairro, setBairro] = React.useState(false);
@@ -127,7 +127,7 @@ export default function ListaCliente() {
   }
 
   async function handleFiltro() {
-    let filtrado = dados.pessoas;
+    let filtrado = dados.pessoas || [];
     console.log(cidade);
     const nomeEscolhido = document.getElementById('nome').value;
    
@@ -279,7 +279,7 @@ export default function ListaCliente() {
               <Box component="form" sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' }, }} noValidate autoComplete="off" >
                 <div>
                   <TextField id="cidade" select label="Cidades" value={cidadeEscolha} onChange={handleCidadeEscolha} helperText="Escolha a cidade" variant="standard" >
-                    {dadosCidade.cidades.map((option) => (
+                    {dadosCidade && dadosCidade.cidades.map((option) => (
                       <MenuItem key={option.id} value={option.id}>
                         {option.nome}
                       </MenuItem>
@@ -295,7 +295,7 @@ export default function ListaCliente() {
                 component="form" sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' }, }} noValidate autoComplete="off" >
                 <div>
                   <TextField id="bairro" select label="Bairros" value={bairroEscolha} onChange={handleBairroEscolha} helperText="Escolha o bairro" variant="standard">
-                    {dadosBairro.bairros.map((option) => (
+                    {dadosBairro && dadosBairro.bairros.map((option) => (
                       <MenuItem key={option.id} value={option.id}>
                         {option.nome}
                       </MenuItem>

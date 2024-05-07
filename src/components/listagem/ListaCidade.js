@@ -98,7 +98,7 @@ export default function ListaCidade() {
         </TableHead>
         <TableBody>
 
-          {dados.cidades.map((row) => (
+          {dados && dados.cidades.map((row) => (
             <StyledTableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
                 {row.codigo}

@@ -9,6 +9,7 @@ export class CidadeService{
     }
 
     inserer(objeto){
+        console.log(this.url);
         return axios.post(this.url,objeto);
     }
 

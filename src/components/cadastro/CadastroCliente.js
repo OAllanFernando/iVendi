@@ -25,7 +25,7 @@ var dados;
 var dadosBairro;
 
 //basca dados das cidades ao abrir o componente
-dados = await controller.listaTodos();
+dados = await controller.listaTodos() ;
 dadosBairro = await controllerBairro.listaTodos();
 console.log(dadosBairro)
 
@@ -33,8 +33,8 @@ console.log(dadosBairro)
 
 
 
-var maiorIdPessoa = await pessoa.maiorId();
-var maiorIdEndereco = await endereco.maiorId();
+var maiorIdPessoa = await pessoa.maiorId() || 0;
+var maiorIdEndereco = await endereco.maiorId() || 0;
 
 var bairroEscolhido;
 
@@ -154,7 +154,7 @@ export default function CadastroCliente() {
                                 label="Cidade"
 
                             >
-                                {dados.cidades.map((option) => (
+                                {dados && dados.cidades.map((option) => (
                                     <MenuItem key={option.id} value={option.id}>
                                         {option.nome}
                                     </MenuItem>
@@ -165,7 +165,7 @@ export default function CadastroCliente() {
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 190 }}>
                             <InputLabel id="bairro">Bairro</InputLabel>
                             <Select  labelId="bairro"   id="bairro" value={bairro} onChange={handleChangeBairro} >
-                                {dadosBairro.bairros.map((option) => (
+                                {dadosBairro && dadosBairro.bairros.map((option) => (
                                     <MenuItem key={option.id} value={option.id}>
                                         {option.nome}
                                     </MenuItem>

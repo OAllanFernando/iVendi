@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const cidade = new CidadeController();
 
-var maiorId = await cidade.maiorId();
+var maiorId = await cidade.maiorId() || 0;
 
 
 export default function CadastroCidade() {
@@ -29,6 +29,7 @@ export default function CadastroCidade() {
         }
 
         await cidade.inserir(cidadeNova).then((response) => {
+            console.log(response);
             if (response === "Cidade cadastrada com sucesso!") {
                 setCidadeCadastrado(true);
                 

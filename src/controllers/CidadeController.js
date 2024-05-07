@@ -46,13 +46,14 @@ export class CidadeController {
         try {
             const response = await cidade.inserer(Object);
             console.log(response);
+
             if(response.data.mensagem === "Cidade cadastrada com sucesso!"){
             
             
             return response.data.mensagem; 
             }
         } catch (error) {
-            
+            console.log(error, "erro");
             console.error(error);
         }
     }

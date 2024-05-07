@@ -44,7 +44,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const controller = new ProdutoController();
 var dados = Object;
 try {
-  dados = await controller.listaTodos();
+  dados = await controller.listaTodos() || [];
   
 
 } catch (error) {
@@ -73,7 +73,7 @@ export default function ListaProduto() {
 
   async function handleEdit(id) {
     setOpenEditor(true);
-    const produto = await controller.buscaPorId(id);
+    const produto = await controller.buscaPorId(id) || [];
     console.log(produto);
     setProduto(produto);
   }
@@ -102,7 +102,7 @@ export default function ListaProduto() {
           </TableHead>
           <TableBody>
 
-            {dados.produtos.map((row) => (
+            { dados.produtos && dados.produtos.map((row) => (
               <StyledTableRow key={row.id}>
                 <StyledTableCell component="th" scope="row">
                   {row.codigo}

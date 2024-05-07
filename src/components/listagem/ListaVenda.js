@@ -50,7 +50,7 @@ const controllerPessoa = new PessoaController();
 const controllerProduto = new ProdutoController()
 
 try {
-  var dados = await controller.listaTodos();
+  var dados = await controller.listaTodos() || [];
   console.log(dados)
   //filtro
   var dadosPessoa = await controllerPessoa.listaTodos();
@@ -63,7 +63,7 @@ export default function ListaVenda() {
 
 //filtro
 
-const [dadoFiltro, setDadoFiltro] = useState(dados.vendas);
+const [dadoFiltro, setDadoFiltro] = useState(dados.vendas || []);
 
 const [pessoa, setPessoa] = React.useState(false);
 const [produtoFiltro, setProdutoFiltro] = React.useState(false);
@@ -120,7 +120,7 @@ function handleProdutoFiltro() {
 }
 
 async function handleFiltro() {
-  let filtrado = dados.vendas;
+  let filtrado = dados.vendas || [];
   
 
   if (pessoa) {
@@ -131,7 +131,7 @@ async function handleFiltro() {
       } else{
         console.log(response)
         filtrado = response;
-        setDadoFiltro(filtrado.vendas);
+        setDadoFiltro(filtrado.vendas || []);
       }
     })
   }
@@ -144,7 +144,7 @@ async function handleFiltro() {
       } else{
         console.log(response)
         filtrado = response;
-        setDadoFiltro(filtrado.vendas);
+        setDadoFiltro(filtrado.vendas   || []);
       }
     })
   }
@@ -157,7 +157,7 @@ async function handleFiltro() {
       } else{
         console.log(response)
         filtrado = response;
-        setDadoFiltro(filtrado.vendas);
+        setDadoFiltro(filtrado.vendas || []);
       }
     })
   }
@@ -167,21 +167,6 @@ async function handleFiltro() {
   
   setAbreAba(false);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
 
     <div>

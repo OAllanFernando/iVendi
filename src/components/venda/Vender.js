@@ -68,7 +68,7 @@ let totalPedido = 0.0;
 const dataAtual = new Date();
 const dataLocal = dataAtual.toISOString().substring(0, 16);
 
-var maiorId = await controllerVenda.maiorId();
+var maiorId = 1;
 try {
     dadosPessoa = await controllerPessoa.listaTodos();
     
@@ -225,7 +225,7 @@ export default function Vender() {
                 <TextField id="data" label="Data" variant="standard" type="datetime-local" defaultValue={dataLocal} />
                 <TextField id="codigo" label="Codigo da venda" variant="standard" type="number" defaultValue={maiorId.maiorId + 1} />
                 <TextField id="cliente" select label="Clientes" defaultValue="0" helperText="Escolha o cliente" variant="standard" onChange={handleClienteChange} >
-                    {dadosPessoa.pessoas.map((option) => (
+                    {dadosPessoa && dadosPessoa.pessoas.map((option) => (
                         <MenuItem
                             key={option.id}
                             value={option.id}>
@@ -235,7 +235,7 @@ export default function Vender() {
                 </TextField>
             </div> <div className='centro'>
                 <TextField id="produto" select label="Produtos" defaultValue="" helperText="Escolha o produto" variant="standard" onChange={handleChange}  >
-                    {dadosProduto.produtos.map((option) => (
+                    {dadosProduto && dadosProduto.produtos.map((option) => (
                         <MenuItem key={option.id} value={option.id}>{option.nome}
 
                         </MenuItem>
